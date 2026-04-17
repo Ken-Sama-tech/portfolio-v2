@@ -1,0 +1,42 @@
+.no-sb {
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+.default-transition {
+  @apply transition-all duration-200 ease-in-out;
+}
+
+.button-gold {
+  @apply rounded-full bg-yellow-500 text-black px-3 py-1 text-xl duration-100 transition-all ease-in cursor-pointer;
+
+  &:hover {
+    @apply bg-yellow-400;
+  }
+}
+
+.button-outline {
+  @apply rounded-full outline-1 outline-yellow-500 text-yellow-500 
+  px-3 py-1 text-xl duration-100 transition-all ease-in cursor-pointer;
+
+  &:hover {
+    @apply text-yellow-400 bg-yellow-400/10;
+  }
+}
+
+.preview {
+  @apply relative cursor-pointer;
+
+  &::before {
+    @apply absolute w-0 h-full transition-all duration-200 ease-in 
+    bg-neutral-800/60 content-[''] flex justify-center items-center
+    opacity-0 -z-1 text-xl;
+  }
+
+  &:hover {
+    &::before {
+      @apply h-full w-full content-['Preview'] opacity-100 z-1;
+    }
+  }
+}

@@ -1,5 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600;700&family=Crimson+Pro:wght@300;400;600&family=Merriweather:wght@300;400;700&display=swap");
 @import "tailwindcss";
+@import "@assets/css/utils.css";
 
 :root {
   font-family: "Cormorant Garamond", "Playfair Display", serif;
@@ -39,31 +40,5 @@ body {
 a {
   &:hover {
     @apply text-yellow-400!;
-  }
-}
-
-.default-transition {
-  @apply transition-all duration-200 ease-in-out;
-}
-
-.button-gold {
-  @apply rounded-full bg-yellow-500 text-black px-3 py-1 text-xl duration-100 transition-all ease-in cursor-pointer;
-
-  &:hover {
-    @apply bg-yellow-400;
-  }
-}
-
-.button-outline {
-  @apply rounded-full outline-1 outline-yellow-500 text-yellow-500 px-3 py-1 text-xl duration-100 transition-all ease-in cursor-pointer;
-
-  &:hover {
-    @apply text-yellow-400 bg-yellow-400/10;
-  }
-}
-
-.no-sb {
-  &::-webkit-scrollbar {
-    display: none;
   }
 }

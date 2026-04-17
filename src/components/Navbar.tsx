@@ -20,7 +20,7 @@ const pages: Page[] = [
 
 const Navbar: FC = () => {
   return (
-    <nav className="flex items-center sticky top-0 bg-(--dark-bg) z-99 justify-between mb-16 pb-4 border-b border-yellow-500/20 ">
+    <nav className="flex items-center sticky top-0 bg-(--dark-bg) z-9 justify-between mb-16 pb-4 border-b border-yellow-500/20 ">
       <NavLink
         to="/"
         className={({ isActive }) =>
