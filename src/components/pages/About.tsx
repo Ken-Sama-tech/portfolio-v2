@@ -20,7 +20,7 @@ import MongoDB_CRUD_Image from "@assets/badges/MongoDB_CRUD.png";
 import MongoDB_RM_to_DM_Image from "@assets/badges/MongoDB_RM_to_DM.png";
 import MongoDB_CRUD_PDF from "@assets/pdf/MongoDB_CRUD.pdf";
 import MongoDB_RM_to_DM_PDF from "@assets/pdf/MongoDB_RM_to_DM.pdf";
-import Preview from "@components/Preview";
+import FilePreview from "@components/FilePreview";
 
 type CardContent = {
   label: string;
@@ -113,14 +113,8 @@ const cardContent: CardContent[] = [
 ];
 
 const badges: Badge[] = [
-  {
-    image: MongoDB_CRUD_Image,
-    pdf: MongoDB_CRUD_PDF,
-  },
-  {
-    image: MongoDB_RM_to_DM_Image,
-    pdf: MongoDB_RM_to_DM_PDF,
-  },
+  { image: MongoDB_CRUD_Image, pdf: MongoDB_CRUD_PDF },
+  { image: MongoDB_RM_to_DM_Image, pdf: MongoDB_RM_to_DM_PDF },
 ];
 
 const About: FC = () => {
@@ -129,55 +123,70 @@ const About: FC = () => {
 
   return (
     <section className="mb-24 flex-col gap-10">
-      <Preview isOpen={isOpen} file={file} onClose={() => setIsOpen(false)} />
+      <FilePreview
+        isOpen={isOpen}
+        file={file}
+        onClose={() => setIsOpen(false)}
+      />
 
       <div className="size-full flex-col text-center mb-16">
-        <h3 className="text-4xl font-semibold mb-4">About Me</h3>
-        <p className="text-yellow-200/70">
-          Write a short paragraph about your background, experience, and
-          interests. Keep it concise but informative.
+        <h3 className="text-4xl! font-semibold mb-4 gradient-gold bg-clip-text text-transparent!">
+          About Me
+        </h3>
+
+        <p className="text-white/70! max-w-[60ch] mx-auto">
+          I use programming to make things more convenient—automating workflows,
+          wrapping existing tools with better interfaces, and building software
+          that fits my own needs.
         </p>
       </div>
 
       <div className="size-full flex-col mb-16">
-        <h3 className="text-4xl font-semibold mb-4 text-center">
+        <h3 className="text-4xl! font-semibold mb-6 text-center gradient-gold bg-clip-text text-transparent!">
           Tools & Stack
         </h3>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 place-items-center gap-y-5">
-          {cardContent.map(({ label, description, icon }) => {
-            return (
-              <div className="w-9/10 h-20" key={label}>
-                <Card label={label} description={description} icon={icon} />
-              </div>
-            );
-          })}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 place-items-center">
+          {cardContent.map(({ label, description, icon }) => (
+            <div
+              className="h-full w-full sm:grid-cols-2 md:grid-cols-1"
+              key={label}
+            >
+              <Card label={label} description={description} icon={icon} />
+            </div>
+          ))}
         </div>
       </div>
 
       <div className="size-full flex-col">
-        <h3 className="text-4xl font-semibold mb-4 text-center">Badges</h3>
+        <h3 className="text-4xl! font-semibold mb-6 text-center gradient-gold bg-clip-text text-transparent!">
+          Badges
+        </h3>
 
-        <div className="flex gap-5 p-5">
-          {badges.map((badge, i) => {
-            return (
+        <div className="flex flex-wrap gap-0 p-5 justify-center">
+          {badges.map((badge, i) => (
+            <div
+              key={`badge-${i}`}
+              className="w-full sm:w-1/2 lg:w-1/3 flex justify-center items-center h-full p-1"
+            >
               <div
-                ref={(e: HTMLDivElement) => {
-                  if (!e) return;
-                  e.addEventListener("click", () => {
-                    setFile(badge.pdf);
-                    setIsOpen(true);
-                  });
-                }}
                 key={`badge-${i}`}
+                onClick={() => {
+                  setFile(badge.pdf);
+                  setIsOpen(true);
+                }}
                 className="
-                bg-cover bg-no-repeat rounded-lg aspect-949/671 w-1/3
-                preview 
-                "
+                bg-cover bg-no-repeat rounded-lg aspect-949/671 w-full
+                preview cursor-pointer
+                border border-yellow-500/30
+                hover:shadow-[0_0_20px_rgba(234,179,8,0.25)]
+              
+                default-transition
+              "
                 style={{ backgroundImage: `url(${badge.image})` }}
-              ></div>
-            );
-          })}
+              />
+            </div>
+          ))}
         </div>
       </div>
     </section>

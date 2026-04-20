@@ -6,7 +6,7 @@ type Props = {
   file: string;
 };
 
-const Preview: FC<Props> = ({ isOpen, onClose, file }) => {
+const FilePreview: FC<Props> = ({ isOpen, onClose, file }) => {
   useEffect(() => {
     const handleKey = (e) => {
       if (e.key === "Escape") onClose();
@@ -39,7 +39,7 @@ const Preview: FC<Props> = ({ isOpen, onClose, file }) => {
           >
             Open
           </a>
-          <button onClick={onClose} className="text-xl">
+          <button onClick={onClose} className="text-xl cursor-pointer">
             ✕
           </button>
         </div>
@@ -47,11 +47,15 @@ const Preview: FC<Props> = ({ isOpen, onClose, file }) => {
 
       <div className="flex-1 flex items-center justify-center">
         <div className="bg-white shadow-2xl max-w-5xl w-full h-[90%] rounded-sm overflow-hidden">
-          <iframe src={file} title="PDF Preview" className="w-full h-full" />
+          <iframe
+            src={file}
+            title="PDF FilePreview"
+            className="w-full h-full"
+          />
         </div>
       </div>
     </div>
   );
 };
 
-export default Preview;
+export default FilePreview;

@@ -7,6 +7,10 @@
   --dark-bg: var(--color-black);
 }
 
+html {
+  font-size: 18px;
+}
+
 * {
   @apply text-yellow-200;
 }
@@ -34,7 +38,7 @@ a,
 small,
 body {
   font-family: "Crimson Pro", "Merriweather", serif;
-  @apply text-lg leading-relaxed;
+  @apply text-base leading-relaxed;
 }
 
 a {

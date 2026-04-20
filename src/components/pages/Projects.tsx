@@ -1,12 +1,78 @@
-import Card from "@components/Card";
-import type { FC } from "react";
+import ProjectPreview from "@components/ProjectPreview";
+import { useState, type FC, type ReactNode } from "react";
+import anilist from "@const/anilist-client";
+import Code from "@components/Code";
+import anilistClient from "@const/anilist-client";
+import aniken from "@const/ani-ken-description";
+import AniKen_Image from "@assets/ani-ken.png";
+import FilePreview from "@components/FilePreview";
+
+type Project = {
+  title: string;
+  code: ReactNode;
+  description: string;
+  output: ReactNode;
+};
 
 const Projects: FC = () => {
-  return (
-    <section className="mb-24 gap-10">
-      <h3 className="text-4xl font-semibold mb-16 text-center">Projects</h3>
+  const [isOpen, setIsOpen] = useState<boolean>(false);
 
-      <div className="w-full"></div>
+  const myProjects: Project[] = [
+    {
+      title: "anilist-client",
+      code: <Code code={anilist.code} language="typescript" />,
+      description: anilist.description,
+      output: <Code code={anilistClient.response} language="json" />,
+    },
+    {
+      title: "Ani-Ken",
+      code: null,
+      description: aniken,
+      output: (
+        <div
+          onClick={() => setIsOpen(true)}
+          className="
+            relative size-full h-full
+            preview cursor-pointer
+            z-10
+          "
+        >
+          <img
+            src={AniKen_Image}
+            className="
+              absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2
+              object-cover
+            "
+          />
+        </div>
+      ),
+    },
+  ];
+
+  return (
+    <section className="mb-24 w-full">
+      <FilePreview
+        file={AniKen_Image}
+        isOpen={isOpen}
+        onClose={() => setIsOpen(false)}
+      />
+
+      <h3 className="text-4xl! font-semibold mb-16 text-center gradient-gold bg-clip-text text-transparent!">
+        Projects
+      </h3>
+
+      <div className="grid gap-6 grid-cols-1 lg:grid-cols-2 place-items-stretch">
+        {myProjects.map((project) => (
+          <div key={project.title} className="w-full">
+            <ProjectPreview
+              code={project.code}
+              title={project.title}
+              output={project.output}
+              description={project.description}
+            />
+          </div>
+        ))}
+      </div>
     </section>
   );
 };

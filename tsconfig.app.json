@@ -7,10 +7,12 @@
     "types": ["vite/client"],
     "skipLibCheck": true,
 
-    "baseUrl": "./",
+    "baseUrl": ".",
     "paths": {
       "@components/*": ["src/components/*"],
-      "@assets/*": ["src/assets/*"]
+      "@assets/*": ["src/assets/*"],
+      "@const/*": ["src/const/*"],
+      "@services": ["src/services/*"]
     },
 
     /* Bundler mode */
@@ -27,5 +29,5 @@
     "erasableSyntaxOnly": true,
     "noFallthroughCasesInSwitch": true
   },
-  "include": ["src"]
+  "include": ["src", "src/services/*ts"]
 }

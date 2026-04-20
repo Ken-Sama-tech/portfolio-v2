@@ -1,7 +1,15 @@
 .no-sb {
   &::-webkit-scrollbar {
-    display: none;
+    display: none !important;
   }
+}
+
+.gradient-dark {
+  @apply bg-linear-to-br from-black via-neutral-900 to-black;
+}
+
+.gradient-gold {
+  @apply bg-gradient-to-r from-yellow-400 via-amber-500 to-yellow-600;
 }
 
 .default-transition {
@@ -9,7 +17,7 @@
 }
 
 .button-gold {
-  @apply rounded-full bg-yellow-500 text-black px-3 py-1 text-xl duration-100 transition-all ease-in cursor-pointer;
+  @apply rounded-full bg-yellow-500 text-black px-3 py-1 text-base duration-100 transition-all ease-in cursor-pointer;
 
   &:hover {
     @apply bg-yellow-400;
@@ -17,8 +25,8 @@
 }
 
 .button-outline {
-  @apply rounded-full outline-1 outline-yellow-500 text-yellow-500 
-  px-3 py-1 text-xl duration-100 transition-all ease-in cursor-pointer;
+  @apply outline-1 outline-yellow-500 text-yellow-500 
+  px-3 py-1 text-base duration-100 transition-all ease-in cursor-pointer;
 
   &:hover {
     @apply text-yellow-400 bg-yellow-400/10;
@@ -34,9 +42,21 @@
     opacity-0 -z-1 text-xl;
   }
 
+  background-repeat: no-repeat;
+
   &:hover {
     &::before {
       @apply h-full w-full content-['Preview'] opacity-100 z-1;
     }
   }
+}
+
+.normalize-font {
+  font-family: Arial, Helvetica, sans-serif !important;
+  font-weight: normal !important;
+  font-style: normal !important;
+  font-variant: normal !important;
+  text-transform: none !important;
+  letter-spacing: normal !important;
+  line-height: normal !important;
 }
