@@ -15,7 +15,7 @@ type Project = {
 };
 
 const Projects: FC = () => {
-  const [previewContent, setPreviewContent] = useState<string>(null);
+  const [previewContent, setPreviewContent] = useState<string | null>(null);
   const [isOpen, setIsOpen] = useState<boolean>(false);
 
   const myProjects: Project[] = [
@@ -73,11 +73,15 @@ const Projects: FC = () => {
 
   return (
     <section className="mb-24 w-full">
-      <FilePreview
-        file={previewContent}
-        isOpen={isOpen}
-        onClose={() => setIsOpen(false)}
-      />
+      {previewContent ? (
+        <FilePreview
+          file={previewContent}
+          isOpen={isOpen}
+          onClose={() => setIsOpen(false)}
+        />
+      ) : (
+        ""
+      )}
 
       <h3 className="text-4xl! font-semibold mb-16 text-center gradient-gold bg-clip-text text-transparent!">
         Projects

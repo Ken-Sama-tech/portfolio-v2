@@ -8,7 +8,7 @@ type Props = {
 
 const FilePreview: FC<Props> = ({ isOpen, onClose, file }) => {
   useEffect(() => {
-    const handleKey = (e) => {
+    const handleKey = (e: KeyboardEvent) => {
       if (e.key === "Escape") onClose();
     };
 
