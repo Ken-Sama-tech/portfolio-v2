@@ -9,7 +9,7 @@
 }
 
 .gradient-gold {
-  @apply bg-gradient-to-r from-yellow-400 via-amber-500 to-yellow-600;
+  @apply bg-linear-to-r from-yellow-400 via-amber-500 to-yellow-600;
 }
 
 .default-transition {

@@ -1,8 +1,11 @@
 import { type FC } from "react";
-import logo from "@assets/hero.png";
+import profile from "@assets/image.png";
 import { Download, Code2 } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 
 const Home: FC = () => {
+  const navigate = useNavigate();
+
   return (
     <section className="mb-24 grid md:grid-cols-2 gap-10 items-center">
       <div>
@@ -15,21 +18,28 @@ const Home: FC = () => {
         </p>
 
         <div className="flex gap-4">
-          <button className="button-gold flex gap-2 items-center">
+          <button
+            onClick={() => navigate("/projects")}
+            className="button-gold flex gap-2 items-center"
+          >
             View Projects <Code2 className="h-5" color="black" />
           </button>
 
-          <button className="button-outline flex gap-2 items-center rounded-full">
+          <a
+            target="_blank"
+            href="/RESUME.pdf"
+            className="button-outline flex gap-2 items-center rounded-full"
+          >
             <span className="text-yellow-500!">Resume</span>
             <Download className="h-5 text-yellow-500!" />
-          </button>
+          </a>
         </div>
       </div>
 
       <div className="flex justify-center md:justify-end">
         <div className="relative">
           <img
-            src={logo}
+            src={profile}
             alt="Profile"
             className="w-64 h-64 object-fill rounded-full border-2 border-yellow-500/80 shadow-[0_0_25px_rgba(234,179,8,0.25)]"
           />

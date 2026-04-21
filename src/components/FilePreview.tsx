@@ -50,7 +50,7 @@ const FilePreview: FC<Props> = ({ isOpen, onClose, file }) => {
           <iframe
             src={file}
             title="PDF FilePreview"
-            className="w-full h-full"
+            className="w-full h-full justify-center"
           />
         </div>
       </div>

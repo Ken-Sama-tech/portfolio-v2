@@ -2,7 +2,7 @@ import ProjectPreview from "@components/ProjectPreview";
 import { useState, type FC, type ReactNode } from "react";
 import anilist from "@const/anilist-client";
 import Code from "@components/Code";
-import anilistClient from "@const/anilist-client";
+import Anilist_Client_Image from "@assets/anilist-client.png";
 import aniken from "@const/ani-ken-description";
 import AniKen_Image from "@assets/ani-ken.png";
 import FilePreview from "@components/FilePreview";
@@ -15,6 +15,7 @@ type Project = {
 };
 
 const Projects: FC = () => {
+  const [previewContent, setPreviewContent] = useState<string>(null);
   const [isOpen, setIsOpen] = useState<boolean>(false);
 
   const myProjects: Project[] = [
@@ -22,7 +23,26 @@ const Projects: FC = () => {
       title: "anilist-client",
       code: <Code code={anilist.code} language="typescript" />,
       description: anilist.description,
-      output: <Code code={anilistClient.response} language="json" />,
+      output: (
+        <div
+          onClick={() => {
+            setPreviewContent(Anilist_Client_Image);
+            setIsOpen(true);
+          }}
+          className="
+            preview
+            relative size-full cursor-pointer z-10
+          "
+        >
+          <img
+            src={Anilist_Client_Image}
+            className="
+              absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2
+              object-cover pointer-events-none -z-1
+            "
+          />
+        </div>
+      ),
     },
     {
       title: "Ani-Ken",
@@ -30,18 +50,20 @@ const Projects: FC = () => {
       description: aniken,
       output: (
         <div
-          onClick={() => setIsOpen(true)}
+          onClick={() => {
+            setPreviewContent(AniKen_Image);
+            setIsOpen(true);
+          }}
           className="
-            relative size-full h-full
-            preview cursor-pointer
-            z-10
+            preview
+            relative size-full cursor-pointer z-10
           "
         >
           <img
             src={AniKen_Image}
             className="
               absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2
-              object-cover
+              object-cover pointer-events-none -z-1
             "
           />
         </div>
@@ -52,7 +74,7 @@ const Projects: FC = () => {
   return (
     <section className="mb-24 w-full">
       <FilePreview
-        file={AniKen_Image}
+        file={previewContent}
         isOpen={isOpen}
         onClose={() => setIsOpen(false)}
       />

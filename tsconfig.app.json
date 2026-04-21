@@ -7,12 +7,12 @@
     "types": ["vite/client"],
     "skipLibCheck": true,
 
+    /*Path*/
     "baseUrl": ".",
     "paths": {
       "@components/*": ["src/components/*"],
       "@assets/*": ["src/assets/*"],
-      "@const/*": ["src/const/*"],
-      "@services": ["src/services/*"]
+      "@const/*": ["src/const/*"]
     },
 
     /* Bundler mode */

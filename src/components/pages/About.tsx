@@ -1,4 +1,4 @@
-import { useState, type FC } from "react";
+import { /*useState,*/ type FC } from "react";
 import Card from "@components/Card";
 import ReactIcon from "@assets/react.svg";
 import TailwindCSSIcon from "@assets/tailwindcss.svg";
@@ -16,11 +16,11 @@ import PHPIcon from "@assets/php.svg";
 import PythonIcon from "@assets/python.svg";
 import NodeJSIcon from "@assets/nodedotjs.svg";
 import JavaIcon from "@assets/java.svg";
-import MongoDB_CRUD_Image from "@assets/badges/MongoDB_CRUD.png";
-import MongoDB_RM_to_DM_Image from "@assets/badges/MongoDB_RM_to_DM.png";
-import MongoDB_CRUD_PDF from "@assets/pdf/MongoDB_CRUD.pdf";
-import MongoDB_RM_to_DM_PDF from "@assets/pdf/MongoDB_RM_to_DM.pdf";
-import FilePreview from "@components/FilePreview";
+// import MongoDB_CRUD_Image from "@assets/badges/MongoDB_CRUD.png";
+// import MongoDB_RM_to_DM_Image from "@assets/badges/MongoDB_RM_to_DM.png";
+// import MongoDB_CRUD_PDF from "@assets/pdf/MongoDB_CRUD.pdf";
+// import MongoDB_RM_to_DM_PDF from "@assets/pdf/MongoDB_RM_to_DM.pdf";
+// import FilePreview from "@components/FilePreview";
 
 type CardContent = {
   label: string;
@@ -28,10 +28,10 @@ type CardContent = {
   icon: string;
 };
 
-type Badge = {
-  image: string;
-  pdf: string;
-};
+// type Badge = {
+//   image: string;
+//   pdf: string;
+// };
 
 const cardContent: CardContent[] = [
   {
@@ -112,22 +112,22 @@ const cardContent: CardContent[] = [
   },
 ];
 
-const badges: Badge[] = [
-  { image: MongoDB_CRUD_Image, pdf: MongoDB_CRUD_PDF },
-  { image: MongoDB_RM_to_DM_Image, pdf: MongoDB_RM_to_DM_PDF },
-];
+// const badges: Badge[] = [
+//   { image: MongoDB_CRUD_Image, pdf: MongoDB_CRUD_PDF },
+//   { image: MongoDB_RM_to_DM_Image, pdf: MongoDB_RM_to_DM_PDF },
+// ];
 
 const About: FC = () => {
-  const [file, setFile] = useState<string>(null);
-  const [isOpen, setIsOpen] = useState<boolean>(false);
+  // const [file, setFile] = useState<string>(null);
+  // const [isOpen, setIsOpen] = useState<boolean>(false);
 
   return (
     <section className="mb-24 flex-col gap-10">
-      <FilePreview
+      {/* <FilePreview
         isOpen={isOpen}
         file={file}
         onClose={() => setIsOpen(false)}
-      />
+      /> */}
 
       <div className="size-full flex-col text-center mb-16">
         <h3 className="text-4xl! font-semibold mb-4 gradient-gold bg-clip-text text-transparent!">
@@ -158,7 +158,7 @@ const About: FC = () => {
         </div>
       </div>
 
-      <div className="size-full flex-col">
+      {/* <div className="size-full flex-col">
         <h3 className="text-4xl! font-semibold mb-6 text-center gradient-gold bg-clip-text text-transparent!">
           Badges
         </h3>
@@ -188,7 +188,7 @@ const About: FC = () => {
             </div>
           ))}
         </div>
-      </div>
+      </div> */}
     </section>
   );
 };

@@ -1,22 +1,19 @@
 const code = `
 //Manual fetch
 const query = 
-\`query ($sort: MediaListSort) {
-  MediaList(sort: $sort) {
-    id
-    advancedScores
-    customLists
-    hiddenFromStatusLists
-    userId
-    user {
-      id
-      name
-    }
+\`query ($search: String) {
+  Media(search: $search) {
+    id: 1,
+    title: {
+      english: 1,
+      native: 1,
+      romaji: 1,
+    },
   }
 }\`;
 
 const variables = {
-  sort: ["MEDIA_ID"],
+  search: "Lord of the Mysteries",
 };
 
 const response = await fetch("https://graphql.anilist.co", {
@@ -39,22 +36,20 @@ import anilist from "anilist-client";
 const app = anilist();
 
 const response = await app
-    .MediaList({
-      sort: ["MEDIA_ID"],
-    })
-    .get({
-      id: 1,
-      advancedScores: 1,
-      customLists: 1,
-      hiddenFromStatusLists: 1,
-      userId: 1,
-      user: {
-        name: 1,
-        id: 1,
-      },
-    });
+  .Media({
+    search: "Lord of the Mysteries",
+  })
+  .get({
+    id: 1,
+    title: {
+      english: 1,
+      native: 1,
+      romaji: 1,
+    },
+  });
 
 console.log(response);
+
 `;
 
 export default code;

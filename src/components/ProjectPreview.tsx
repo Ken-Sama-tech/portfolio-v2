@@ -17,7 +17,7 @@ type Tab = {
 };
 
 const ProjectPreview: FC<Props> = ({ code, description, output, title }) => {
-  const [tab, setTab] = useState<TabLabel>("description");
+  const [tab, setTab] = useState<TabLabel>("output");
 
   const tabs: Tab[] = [
     {
