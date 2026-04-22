@@ -26,8 +26,7 @@ const Home: FC = () => {
           </button>
 
           <a
-            target="_blank"
-            href="/RESUME.pdf"
+            href="RESUME.pdf"
             className="button-outline flex gap-2 items-center rounded-full"
           >
             <span className="text-yellow-500!">Resume</span>
