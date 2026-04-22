@@ -26,6 +26,7 @@ const Home: FC = () => {
           </button>
 
           <a
+            download="RESUME.pdf"
             href="RESUME.pdf"
             className="button-outline flex gap-2 items-center rounded-full"
           >
