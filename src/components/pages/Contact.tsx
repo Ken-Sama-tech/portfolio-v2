@@ -23,11 +23,11 @@ const Contact: FC = () => {
   return (
     <section className="min-h-screen flex items-center justify-center gradient-dark px-4">
       <div className="w-full max-w-5xl">
-        <div className="text-center mb-10">
+        <div className="flex flex-col items-center text-center mb-10">
           <h1 className="text-4xl! md:text-5xl font-bold tracking-wide gradient-gold bg-clip-text text-transparent!">
             GET IN TOUCH
           </h1>
-          <p className="text-gray-400! mt-3 text-sm md:text-base">
+          <p className="text-gray-400! mt-3 text-sm md:text-base text-wrap w-3/4 md:w-1/2">
             Have a project in mind or just want to get in touch? Perhaps just
             wanna get touched? I'd be happy to do that for you.
           </p>
