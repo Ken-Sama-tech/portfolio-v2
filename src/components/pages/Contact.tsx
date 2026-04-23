@@ -28,8 +28,8 @@ const Contact: FC = () => {
             GET IN TOUCH
           </h1>
           <p className="text-gray-400! mt-3 text-sm md:text-base">
-            Have a project in mind or just want to get in touch? Maybe wanna be
-            touched?
+            Have a project in mind or just want to get in touch? Perhaps just
+            wanna get touched? I'd be happy to do that for you
           </p>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
